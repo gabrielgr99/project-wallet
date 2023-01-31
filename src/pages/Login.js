@@ -33,31 +33,32 @@ class Login extends React.Component {
 
   render() {
     const { validEmail, validPassword } = this.state;
+    const inputClass = `p-2 border-b border-gray-800 focus:outline-none focus:border-black
+    focus:border-b-2 bg-transparent font-normal drop-shadow`;
+    const labelClass = 'my-[20px] font-bold';
+
     return (
       <section
-        className="flex flex-col border-2 rounded border-white drop-shadow-md
-        backdrop-blur backdrop-grayscale items-center text-white text-[20px]
-        backdrop-contrast-50 drop-shadow-[5px_5px_5px_rgba(0,0,0,0.5)] p-[20px]"
+        className="flex flex-col rounded drop-shadow-md items-center text-gray-900
+        text-[20px] p-[20px] drop-shadow bg-white/95"
       >
         <h2 className="text-center text-[30px] my-[10px]">Login</h2>
-        <label htmlFor="email-input" className="my-[20px] font-bold">
+        <label htmlFor="email-input" className={ labelClass }>
           Email
           <br />
           <input
             data-testid="email-input"
-            className="p-2 border-b border-white focus:outline-none focus:border-white
-            focus:border-b-2 bg-transparent font-normal"
+            className={ inputClass }
             type="email"
             onChange={ this.validateLogin }
           />
         </label>
-        <label htmlFor="password-input" className="my-[20px] font-bold">
+        <label htmlFor="password-input" className={ labelClass }>
           Senha
           <br />
           <input
             data-testid="password-input"
-            className="p-2 border-b border-white focus:outline-none focus:border-white
-            focus:border-b-2 bg-transparent font-normal"
+            className={ inputClass }
             type="password"
             minLength={ 6 }
             onChange={ this.validateLogin }
@@ -66,7 +67,7 @@ class Login extends React.Component {
         <button
           type="button"
           className="bg-gray-900 rounded py-2 my-[10px] w-full
-          text-gray-100 disabled:bg-gray-700 disabled:text-gray-400"
+          text-gray-100 disabled:bg-gray-700 disabled:text-gray-400 drop-shadow"
           disabled={ !(validEmail && validPassword) }
           onClick={ this.submitEmail }
         >

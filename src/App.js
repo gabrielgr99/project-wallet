@@ -5,8 +5,9 @@ import Wallet from './pages/Wallet';
 
 function App() {
   return (
-    <section className="flex">
-      <h1 className="m-[5px]">Hello, TrybeWallet!</h1>
+    <section
+      className="flex flex-col items-center w-max mx-auto mt-[200px]"
+    >
 
       <Switch>
         <Route exact path="/" component={ Login } />

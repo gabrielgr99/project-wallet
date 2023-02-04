@@ -6,7 +6,7 @@ import Wallet from './pages/Wallet';
 function App() {
   return (
     <section
-      className="flex flex-col items-center w-max mx-auto mt-[200px]"
+      className="flex flex-col items-center w-max mx-auto"
     >
 
       <Switch>

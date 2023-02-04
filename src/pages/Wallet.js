@@ -52,6 +52,14 @@ class Wallet extends React.Component {
   editExpense = (id) => {
     const { expenses, getNewExpenses } = this.props;
     const { valuesToEdit } = this.state;
+    const resetFormData = {
+      id: 0,
+      value: 0,
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+    };
     const newExpenses = expenses.map((expense) => {
       let expenseEdited;
       if (expense.id === id) {
@@ -61,20 +69,37 @@ class Wallet extends React.Component {
       }
       return expenseEdited;
     });
-    // console.log(newExpenses);
     getNewExpenses(newExpenses);
+    this.setState((prevState) => (
+      { ...prevState, valuesToEdit: resetFormData, editting: false }));
   }
 
   render() {
     const { email, currencies } = this.props;
     const { totalValue, valuesToEdit, editting } = this.state;
     return (
-      <section>
-        <header>
-          <h2>TrybeWallet</h2>
-          <span data-testid="email-field">{ `Usuário: ${email}` }</span>
-          <span data-testid="total-field">{ totalValue.toFixed(2) }</span>
-          <span data-testid="header-currency-field">Moeda: BRL</span>
+      <section
+        className="bg-gray-200 h-[100vh] w-[100vw]"
+      >
+        <header className="flex justify-between items-center p-[15px] bg-gray-800">
+          <div
+            className="flex flex-col w-max bg-gray-800 text-white text-[18px] px-[10px]
+            rounded font-bold"
+          >
+            <p data-testid="header-currency-field">Total</p>
+            <p data-testid="total-field">{ `R$ ${totalValue.toFixed(2)}` }</p>
+          </div>
+          <div
+            data-testid="email-field"
+            className="flex text-[25px] h-max items-center text-white"
+          >
+            { email }
+            <img
+              src="https://img.icons8.com/ios/40/ffffff/gender-neutral-user--v4.png"
+              alt="Ícone de perfil"
+              className="ml-[10px]"
+            />
+          </div>
         </header>
         <Form
           currencies={ currencies }

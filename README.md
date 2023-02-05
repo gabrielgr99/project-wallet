@@ -6,6 +6,13 @@ Esse projeto consiste em adicionar, excluir e editar despesas comuns do dia-a-di
 
 Acesse através [deste link](https://project-wallet-three.vercel.app/)
 
+### Como testar
+
+Para testar se tufo está funcionando corretamente, entre na raiz do projeto e digite o comando:
+```
+ npm test
+```
+
 ### Tecnologias
 
 As tecnologias utilizadas foram:

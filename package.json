@@ -47,6 +47,7 @@
     "@sheerun/mutationobserver-shim": "0.3.3",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "18.2.0",
+    "eslint-config-trybe-frontend": "1.2.3",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsx-a11y": "6.4.1",
@@ -58,6 +59,6 @@
     "react-error-overlay": "6.0.9",
     "stylelint": "13.8.0",
     "stylelint-config-standard": "20.0.0",
-    "eslint-config-trybe-frontend": "1.2.3"
+    "tailwindcss": "^3.2.4"
   }
 }

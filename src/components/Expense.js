@@ -29,7 +29,10 @@ class Expense extends Component {
   render() {
     const { expense, setValuesToEdit } = this.props;
     return (
-      <tr>
+      <tr
+        className="bg-white text-center h-[50px] hover:bg-gray-200
+         border-gray-300 border duration-150 text-gray-700"
+      >
         <td>{ expense.description }</td>
         <td>{ expense.tag }</td>
         <td>{ expense.method }</td>
@@ -40,11 +43,13 @@ class Expense extends Component {
           { (expense.value * expense.exchangeRates[expense.currency].ask).toFixed(2) }
         </td>
         <td>Real</td>
-        <td>
+        <td className="text-gray-100">
           <button
             type="button"
             data-testid="edit-btn"
             onClick={ () => setValuesToEdit(expense, true) }
+            className="bg-gray-700 px-[5px] rounded-l-[4px] hover:bg-blue-900
+            duration-150"
           >
             Edit
           </button>
@@ -52,6 +57,8 @@ class Expense extends Component {
             type="button"
             onClick={ () => this.deleteExpense(expense.id) }
             data-testid="delete-btn"
+            className="bg-gray-900 px-[5px] rounded-r-[4px] hover:bg-cyan-900
+            duration-150"
           >
             Del
           </button>

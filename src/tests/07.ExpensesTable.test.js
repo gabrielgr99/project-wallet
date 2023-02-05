@@ -18,16 +18,16 @@ describe('7 - Desenvolva uma tabela com os gastos contendo as seguintes caracter
   afterEach(() => jest.clearAllMocks());
   const initial = initialStateWithExpenses;
 
-  test('A tabela deve possuir um cabeçalho com os campos Descrição, Tag, Método de pagamento, Valor, Moeda, Câmbio utilizado, Valor convertido e Moeda de conversão', () => {
+  test('A tabela deve possuir um cabeçalho com os campos Descrição, Tag, Pagamento, Valor, Moeda, Câmbio, Valor convertido e Moeda corrente', () => {
     renderWithRouterAndStore(<Wallet />, '/carteira', initial);
 
     expect(screen.getByRole('columnheader', { name: 'Descrição' })).toBeInTheDocument();
     expect(screen.getByRole('columnheader', { name: 'Tag' })).toBeInTheDocument();
-    expect(screen.getByRole('columnheader', { name: 'Método de pagamento' })).toBeInTheDocument();
+    expect(screen.getByRole('columnheader', { name: 'Pagamento' })).toBeInTheDocument();
     expect(screen.getByRole('columnheader', { name: 'Moeda' })).toBeInTheDocument();
-    expect(screen.getByRole('columnheader', { name: 'Câmbio utilizado' })).toBeInTheDocument();
+    expect(screen.getByRole('columnheader', { name: 'Câmbio' })).toBeInTheDocument();
     expect(screen.getByRole('columnheader', { name: 'Valor convertido' })).toBeInTheDocument();
-    expect(screen.getByRole('columnheader', { name: 'Moeda de conversão' })).toBeInTheDocument();
+    expect(screen.getByRole('columnheader', { name: 'Moeda corrente' })).toBeInTheDocument();
     expect(screen.getByRole('columnheader', { name: 'Editar/Excluir' })).toBeInTheDocument();
   });
 });

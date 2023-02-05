@@ -11,6 +11,7 @@ import {
   TAG_INPUT_TEST_ID,
   DESCRIPTION_INPUT_TEST_ID,
   TOTAL_FIELD_TEST_ID,
+  FORM_BTN_ADD_TEST_ID,
 } from './helpers/constants';
 
 const mockFetch = () => {
@@ -26,14 +27,14 @@ describe('6 - Salve todas as informações do formulário no estado global', () 
   beforeEach(mockFetch)
   afterEach(() => jest.clearAllMocks());
   
-  test('Um botão com o texto \'Adicionar despesa\' que salva as informações da despesa no estado global e atualiza a soma de despesas no header', async () => {
+  test('Um botão de adicionar que salva as informações da despesa no estado global e atualiza a soma de despesas no header', async () => {
     const { store } = renderWithRouterAndStore(<Wallet />, '/carteira');
 
     const currencyInput = await screen.findByRole('combobox', {
       name: /moeda/i,
     });
 
-    const addButton = await screen.findByText(/Adicionar despesa/i);
+    const addButton = await screen.getByTestId(FORM_BTN_ADD_TEST_ID);
     const valueInput = await screen.findByTestId(VALUE_INPUT_TEST_ID);
     const methodInput = await screen.findByTestId(METHOD_INPUT_TEST_ID);
     const tagInput = await screen.findByTestId(TAG_INPUT_TEST_ID);
@@ -101,6 +102,6 @@ describe('6 - Salve todas as informações do formulário no estado global', () 
     expect(store.getState().wallet.expenses).toStrictEqual(expectedStateExpense2);
 
     const totalField = screen.getByTestId(TOTAL_FIELD_TEST_ID);
-    expect(totalField.innerHTML).toBe('192.69');
+    expect(totalField.innerHTML).toBe('R$ 192.69');
   });
 });

@@ -78,9 +78,7 @@ class Wallet extends React.Component {
     const { email, currencies } = this.props;
     const { totalValue, valuesToEdit, editting } = this.state;
     return (
-      <section
-        className="bg-gray-200 h-[100vh] w-[100vw]"
-      >
+      <section className="bg-gray-200 h-[100vh] w-[100vw]">
         <header className="flex justify-between items-center p-[15px] bg-gray-800">
           <div
             className="flex flex-col w-max bg-gray-800 text-white text-[18px] px-[10px]

@@ -5,9 +5,7 @@ import Wallet from './pages/Wallet';
 
 function App() {
   return (
-    <section
-      className="flex flex-col items-center w-max mx-auto"
-    >
+    <section className="flex flex-col items-center w-max mx-auto">
 
       <Switch>
         <Route exact path="/" component={ Login } />

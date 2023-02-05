@@ -7,29 +7,29 @@ import Wallet from '../pages/Wallet';
 import { renderWithRouterAndStore } from './helpers/testConfig';
 
 import {
-  EDIT_INPUT_TEST_ID,
   VALUE_INPUT_TEST_ID,
   METHOD_INPUT_TEST_ID,
   TAG_INPUT_TEST_ID,
   DESCRIPTION_INPUT_TEST_ID,
   BTN_EDIT_TEST_ID,
   TOTAL_FIELD_TEST_ID,
+  FORM_BTN_EDIT_TEST_ID,
 } from './helpers/constants';
 
 describe('10 - Crie um botão para editar uma despesa da tabela contendo as seguintes características:', () => {
   afterEach(() => jest.clearAllMocks());
   const initial = initialStateWithExpenses;
 
-  test('O botão deve estar dentro do último item da linha da tabela e deve possuir `data-testid="edit-btn"`', () => {
+  test('O botão deve estar dentro do primeiro item da linha da tabela e deve possuir `data-testid="edit-btn"`', () => {
     renderWithRouterAndStore(<Wallet />, '/carteira', initial);
     const btnEdit = document.getElementsByTagName('tr')[1].lastChild.firstChild;
     expect(btnEdit).toBeInTheDocument();
     expect(btnEdit.dataset.testid).toBe(BTN_EDIT_TEST_ID);    
   });
 
-  test('Ao ser clicado, o botão habilita um formulário para editar a linha da tabela. Ao clicar em "Editar despesa" ela é atualizada e atualiza a soma de despesas no header.', async () => {
+  test('Ao ser clicado, o botão habilita um formulário para editar a linha da tabela. Ao clicar no botão de editar despesa ela é atualizada e atualiza a soma de despesas no header.', async () => {
     const { store } = renderWithRouterAndStore(<Wallet />, '/carteira', initial);
-    const toggleEditBtn = screen.getAllByTestId(EDIT_INPUT_TEST_ID)[0];
+    const toggleEditBtn = screen.getAllByTestId(BTN_EDIT_TEST_ID)[0];
     fireEvent.click(toggleEditBtn);
 
     const totalField = screen.getByTestId(TOTAL_FIELD_TEST_ID);
@@ -40,7 +40,7 @@ describe('10 - Crie um botão para editar uma despesa da tabela contendo as segu
     const methodInput = await screen.findByTestId(METHOD_INPUT_TEST_ID);
     const tagInput = await screen.findByTestId(TAG_INPUT_TEST_ID);
     const descriptionInput = await screen.findByTestId(DESCRIPTION_INPUT_TEST_ID);
-    const editButton = await screen.findByText(/Editar despesa/i);
+    const editButton = await screen.getByTestId(FORM_BTN_EDIT_TEST_ID);
 
     userEvent.type(valueInput, '100');
     userEvent.selectOptions(currencyInput, 'CAD');

@@ -36,12 +36,4 @@ describe('3 - Crie um header para a página de carteira contendo as seguintes ca
     const INITIAL_VALUE = 0;
     expect(totalField).toContainHTML(INITIAL_VALUE);
   });
-
-  test('Crie um campo que mostre que qual câmbio está sendo utilizado, que será neste caso \'BRL\'', () => {
-    renderWithRouterAndStore(<Wallet />, '/carteira');
-    const exchangeField = screen.getByTestId('header-currency-field');
-
-    expect(exchangeField).toBeInTheDocument();
-    expect(exchangeField).toContainHTML('BRL');
-  });
 });

@@ -120,6 +120,7 @@ class Form extends Component {
                 className="material-symbols-outlined bg-gray-800 w-[23px] h-[23px]
                 rounded text-white translate-y-[6px] flex items-center justify-center
                 hover:bg-gray-600 duration-150"
+                data-testid="edit-form-btn"
               >
                 edit
               </span>
@@ -134,6 +135,7 @@ class Form extends Component {
                 className="material-symbols-outlined bg-gray-800 w-[23px] h-[23px]
                 rounded text-white translate-y-[6px] flex items-center justify-center
                 hover:bg-gray-600 duration-150"
+                data-testid="add-form-btn"
               >
                 add
               </span>

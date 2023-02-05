@@ -44,8 +44,8 @@ class Form extends Component {
     return (
       <form
         onChange={ this.getFormData }
-        className="drop-shadow-md text-gray-800
-        text-[17px] px-[20px] py-[15px] bg-white/95"
+        className="drop-shadow-md text-gray-800 text-[17px] px-[20px] py-[15px]
+        bg-white/95"
       >
         <h2 className="font-bold mb-[8px] text-[18px]">Registre a despesa</h2>
         <label htmlFor="value-input" className={ labelClass }>
@@ -96,6 +96,7 @@ class Form extends Component {
             <option value="Trabalho">Trabalho</option>
             <option value="Transporte">Transporte</option>
             <option value="Saúde">Saúde</option>
+            <option value="Outro">Outro</option>
           </select>
         </label>
         <label htmlFor="description-input" className={ labelClass }>
@@ -106,6 +107,7 @@ class Form extends Component {
             value={ valuesToEdit.description }
             data-testid="description-input"
             className={ `ml-[5px] ${inputClass}` }
+            maxLength={ 30 }
           />
         </label>
         {
